@@ -1,4 +1,12 @@
-<div class="grid">
-    <app-card *ngFor="let c of cards; let idx=index" [data]="c" (cardClicked)="cardClicked(idx)">
-    </app-card>
+<div class="row">
+    <div class="col">
+        Match Count: {{ matchedCount }}
+    </div>
+    <div class="col"></div>
+</div>
+<div class="row row-cols-6">
+    <div class="m-2" *ngFor="let c of cards; let idx=index">
+        <app-card [data]="c" (cardClicked)="cardClicked(idx)">
+        </app-card>
+    </div>
 </div>

@@ -1,42 +1,23 @@
-:host {
-    display: block;
-}
-
-.splendex-logo {
-    width:80%;
-}
-
 .card {
-    border-radius: 5px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    height: 200px;
-
-    cursor: pointer;
-
-    position: relative;
-
-    transform-style: preserve-3d;
-}
-
-.front {
     width: 100%;
-    height: 100%;
-    border-radius: 5px;
-    backface-visibility: hidden;
 }
 
-.front {
+.card-img-top {
     transform: rotateY(180deg);
 }
 
+.card:hover {
+    cursor: pointer;
+}
 
-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 5px;
-} 
+.matched {
+    transform: rotateY(180deg);
+}
+
+.matched img {
+    opacity: 0.5;
+}
+
+.flipped {
+    transform: rotateY(180deg);
+}

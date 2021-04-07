@@ -1,5 +1,12 @@
-<div class="card bg-light" (click)="cardClicked.emit()" [@cardFlip]="data.state">
-        <div class="face front">
-            <img [src]="'assets/images/cards/' + data.imageId">
-        </div>
+<div class="card bg-light" 
+    [ngClass]="data.state === 'matched' ? 'matched' : ''" 
+    (click)="cardClicked.emit()" 
+    [@cardFlip]="data.state">
+        <img 
+            [style.visibility]="data.state === 'flipped' || 
+                                data.state === 'matched' ? 
+                                'visible' : 
+                                'hidden'"
+            class="card-img-top" 
+            [src]="'assets/images/cards/' + data.imageId">
 </div>
