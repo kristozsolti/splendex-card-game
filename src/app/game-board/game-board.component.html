@@ -1,0 +1,4 @@
+<div class="grid">
+    <app-card *ngFor="let c of cards; let idx=index" [data]="c" (cardClicked)="cardClicked(idx)">
+    </app-card>
+</div>

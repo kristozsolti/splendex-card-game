@@ -1,0 +1,5 @@
+<div class="card bg-light" (click)="cardClicked.emit()" [@cardFlip]="data.state">
+        <div class="face front">
+            <img [src]="'assets/images/cards/' + data.imageId">
+        </div>
+</div>
