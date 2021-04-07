@@ -28,6 +28,7 @@ export class GameBoardComponent implements OnInit, OnDestroy {
   flippedCards: CardData[] = [];
 
   matchedCount = 0;
+  tryCount = 0;
 
   constructor(private deckSizeService: DeckSizeService) { }
 
@@ -76,6 +77,7 @@ export class GameBoardComponent implements OnInit, OnDestroy {
 
       if (this.flippedCards.length === 2) {
         this.checkForCardMatch();
+        this.tryCount++;
      }
 
     } else if (cardInfo.state === 'flipped') {
@@ -111,7 +113,21 @@ export class GameBoardComponent implements OnInit, OnDestroy {
 
   restart(): void {
     this.matchedCount = 0;
+    this.tryCount = 0;
     this.setupCards();
+  }
+
+  showGameWonModal(): void {
+    const container = document.getElementsByTagName('body')[0];
+    const button = document.createElement('button');
+
+    button.type = 'button';
+    button.style.display = 'none';
+    button.setAttribute('data-toggle', 'modal');
+    button.setAttribute('data-target', '#gameWonModal');
+
+    container.appendChild(button);
+    button.click();
   }
 
 }
