@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/splendix-card-game'),
+      dir: require('path').join(__dirname, './coverage/splendex-card-game'),
       subdir: '.',
       reporters: [
         { type: 'html' },
