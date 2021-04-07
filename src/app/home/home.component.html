@@ -12,10 +12,14 @@
     <h5>Deck size: {{deckSize}}</h5>
     <div class="btn-toolbar mb-2" role="toolbar">
         <div class="btn-group mr-2" role="group">
+            <button type="button" class="btn btn-secondary" value="3" (click)="setDeckSize($event.target.value)">3</button>
+            <button type="button" class="btn btn-secondary" value="4" (click)="setDeckSize($event.target.value)">4</button>
+            <button type="button" class="btn btn-secondary" value="5" (click)="setDeckSize($event.target.value)">5</button>
             <button type="button" class="btn btn-secondary" value="6" (click)="setDeckSize($event.target.value)">6</button>
+            <button type="button" class="btn btn-secondary" value="7" (click)="setDeckSize($event.target.value)">7</button>
             <button type="button" class="btn btn-secondary" value="8" (click)="setDeckSize($event.target.value)">8</button>
+            <button type="button" class="btn btn-secondary" value="9" (click)="setDeckSize($event.target.value)">9</button>
             <button type="button" class="btn btn-secondary" value="10" (click)="setDeckSize($event.target.value)">10</button>
-            <button type="button" class="btn btn-secondary" value="12" (click)="setDeckSize($event.target.value)">12</button>
         </div>
     </div>
 
