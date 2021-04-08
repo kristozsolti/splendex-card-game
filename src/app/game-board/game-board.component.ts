@@ -11,7 +11,7 @@ import { DeckSizeService } from '../deck-size.service';
 export class GameBoardComponent implements OnInit, OnDestroy {
   deckSize: number;
   deckSizeSub: Subscription;
-  cardImages = [
+  cardImagesSource = [
     'angular.png',
     'd3.png',
     'jenkins.png',
@@ -23,6 +23,7 @@ export class GameBoardComponent implements OnInit, OnDestroy {
     'ts.png',
     'webpack.png',
   ];
+  cardImages = [];
 
   cards: CardData[] = [];
   flippedCards: CardData[] = [];
@@ -45,7 +46,7 @@ export class GameBoardComponent implements OnInit, OnDestroy {
   }
 
   setupCards(): void {
-    this.cardImages = this.cardImages.slice(0, this.deckSize);
+    this.cardImages = this.cardImagesSource.slice(0, this.deckSize);
     this.cards = [];
     this.cardImages.forEach((image) => {
       const cardData: CardData = {
@@ -117,17 +118,9 @@ export class GameBoardComponent implements OnInit, OnDestroy {
     this.setupCards();
   }
 
-  showGameWonModal(): void {
-    const container = document.getElementsByTagName('body')[0];
-    const button = document.createElement('button');
-
-    button.type = 'button';
-    button.style.display = 'none';
-    button.setAttribute('data-toggle', 'modal');
-    button.setAttribute('data-target', '#gameWonModal');
-
-    container.appendChild(button);
-    button.click();
+  onDeckSizeSelected(deckSize: number): void {
+    this.deckSizeService.setDeckSize(deckSize);
+    this.setupCards();
   }
 
 }

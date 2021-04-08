@@ -6,37 +6,32 @@
         Match Count: {{ matchedCount }}
     </div>
     <div class="col">
-        <button class="btn btn-info float-right" (click)="restart()">Restart Game</button>
+        <div class="input-group mb-3 float-right">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="deckSizeSelect">Deck Size</label>
+            </div>
+            <select class="custom-select" 
+                #deckSizeSelect
+                [value]="deckSize"
+                (change)='onDeckSizeSelected(deckSizeSelect.value)'>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+        </div>
+    </div>
+    <div class="col">
+        <button class="btn btn-info" (click)="restart()">Restart Game</button>
     </div>
 </div>
 <div class="row row-cols-6">
     <div class="m-2" *ngFor="let c of cards; let idx=index">
         <app-card [data]="c" (cardClicked)="cardClicked(idx)">
         </app-card>
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="gameWonModal" tabindex="-1" role="dialog" aria-labelledby="gameWonModalLabel" aria-hidden="true">
-    <div class="modal-dialog delete-modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="gameWonModalLabel">You Won!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Would you like to play again?</p>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                    No
-                </button>
-                <button (click)="restart()" class="btn btn-danger" data-dismiss="modal">
-                    Yes
-                </button>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
