@@ -29,7 +29,7 @@
         <button class="btn btn-info" (click)="restart()">Restart Game</button>
     </div>
 </div>
-<div class="row row-cols-6">
+<div class="row row-cols-6 row-cols-sm-4 row-cols-md-6">
     <div class="m-2" *ngFor="let c of cards; let idx=index">
         <app-card [data]="c" (cardClicked)="cardClicked(idx)">
         </app-card>
